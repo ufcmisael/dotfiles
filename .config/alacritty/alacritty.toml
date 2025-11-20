@@ -1,0 +1,44 @@
+
+# =====================
+# Alacritty Configuration
+# =====================
+
+[general]
+# Importa tema Nord
+import = [
+  "~/.config/alacritty/themes/nord.toml",
+]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding.x = 10
+padding.y = 10
+decorations = "Buttonless"
+opacity = 0.85
+blur = true
+option_as_alt = "Both"
+
+[font]
+normal.family = "JetBrains Mono Nerd Font"
+normal.style = "Regular"
+size = 12
+
+[terminal.shell]
+# Força Zsh como shell com login
+program = "/usr/bin/zsh"
+args = ["--login"]
+
+[cursor]
+style = "Beam"   # opções: Block, Underline, Beam
+unfocused_hollow = true
+
+[scrolling]
+multiplier = 3  # velocidade do scroll
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+# 🚫 Não adicionamos keybindings custom aqui
+# Os atalhos padrão do Alacritty (Ctrl + Shift + C/V, Ctrl + + / -) funcionam por padrão

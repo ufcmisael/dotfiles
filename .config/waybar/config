@@ -1,0 +1,33 @@
+
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "margin": "5 5 0 5",
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "tray"],
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip-format": "{:%A, %d de %B de %Y}"
+  },
+
+  "pulseaudio": {
+    "format": "  {volume}%",
+    "format-muted": "  Mudo",
+    "scroll-step": 5
+  },
+
+  "network": {
+    "interface": "enp8s0",
+    "format-ethernet": "󰤨  {ipaddr}",
+    "format-disconnected": "󰖪  Sem conexão"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  }
+}
