@@ -1,14 +1,26 @@
 #!/usr/bin/env bash
 
-# Caminho das imagens
-WALLDIR="$HOME/Imagens/Wallpapers"
+# --- Configurações ---
+WALL_DIR="$HOME/Imagens/Wallpapers"
 
-# Nome do monitor (ajuste conforme o seu)
-MONITOR="HDMI-A-1"
+# ---  Verifica se o hyprpaper está rodando ---
+if ! pgrep -x "hyprpaper" > /dev/null; then
+    echo "Hyprpaper não está rodando. Iniciando..."
+    hyprpaper &
+    sleep 1 # Dá tempo para o socket iniciar
+fi
 
-# Escolhe uma imagem aleatória (só PNG)
-# IMG=$(find "$WALLDIR" -type f -iname "*.png" | shuf -n 1)
-IMG=$(find "$WALLDIR" -type f \( -iname "*.png" -o -iname "*.jpg" \) | shuf -n 1)
+# O comando find busca jpg, png e jpeg. O shuf pega um aleatório.
+IMG=$(find "$WALL_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | shuf -n 1)
 
-# Muda o wallpaper via hyprpaper
-hyprctl hyprpaper wallpaper "$MONITOR,$IMG"
+# Verifica se encontrou alguma imagem
+if [ -z "$IMG" ]; then
+    notify-send "Erro Wallpaper" "Nenhuma imagem encontrada na pasta!"
+    exit 1
+fi
+
+hyprctl hyprpaper preload "$IMG"
+hyprctl hyprpaper wallpaper ",$IMG"
+
+sleep 1 
+hyprctl hyprpaper unload unused
