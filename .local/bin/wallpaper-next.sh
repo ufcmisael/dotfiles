@@ -43,8 +43,18 @@ hyprctl hyprpaper wallpaper ",$NEXT_FILE"
 hyprctl hyprpaper unload unused
 
 # 4. Persistência (atualiza config para o próximo boot)
-echo "preload = $NEXT_FILE" > "$CONF"
-echo "wallpaper = ,$NEXT_FILE" >> "$CONF"
+echo "
+# mensagens hyprland
+splash = false
+# permitir troca de wallpaper sem matar sessao
+ipc = true
+
+wallpaper {
+    monitor =
+    path = $NEXT_FILE
+    fit_mode = cover
+}
+" > "$CONF"
 
 # 5. Atualiza índice
 echo "$NEXT" > "$CACHE"

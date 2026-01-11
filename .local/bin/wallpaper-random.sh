@@ -19,8 +19,7 @@ if [ -z "$IMG" ]; then
     exit 1
 fi
 
-hyprctl hyprpaper preload "$IMG"
-hyprctl hyprpaper wallpaper ",$IMG"
+hyprctl hyprpaper wallpaper ",$IMG,cover"
 
 sleep 1 
 hyprctl hyprpaper unload unused
