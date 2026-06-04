@@ -1,3 +1,4 @@
+
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
@@ -22,12 +23,12 @@ return {
 				sh = { "shfmt" },
 			},
 
-			-- 2. (OPCIONAL) Formata automaticamente ao salvar o arquivo
-			format_on_save = {
-				lsp_fallback = true, -- Se não houver formatador definido, usa o LSP padrão (ex: clangd, jdtls)
-				async = false,
-				timeout_ms = 1000,
-			},
+			-- 2. Formata automaticamente ao salvar o arquivo
+			-- format_on_save = {
+			-- 	lsp_fallback = true, -- Se não houver formatador definido, usa o LSP padrão (ex: clangd, jdtls)
+			-- 	async = false,
+			-- 	timeout_ms = 1000,
+			-- },
 		})
 
 		-- 3. Recriando a sua keymap <leader>cf
