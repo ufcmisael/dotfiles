@@ -33,7 +33,7 @@ return {
 			"eslint_d",
 			"stylua",
 			"shfmt",
-			"codebook",
+			 -- "codebook",
 			"java-debug-adapter",
 			"java-test",
 		}
