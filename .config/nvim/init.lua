@@ -1,6 +1,6 @@
 
 require("config.lazy")
---require("config.autocmds") -- needs be required in lazy.lua if not on_attach wont work
+--require("config.autocmds") --required in lazy.lua if not on_attach wont work
 require("keymaps.remap")
 require("keymaps.telescope")
 require("keymaps.harpoon")
