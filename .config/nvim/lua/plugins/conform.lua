@@ -38,6 +38,6 @@ return {
 				async = false,
 				timeout_ms = 1000,
 			})
-		end, { desc = "[C]ode [F]ormat (Conform)" })
+		end, { desc = "Code Format (Conform)" })
 	end,
 }

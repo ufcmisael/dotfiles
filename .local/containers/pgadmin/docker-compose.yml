@@ -4,9 +4,9 @@ services:
     container_name: postgres
     restart: on-failure
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: mydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     volumes:
       - ${HOME}/.local/containers/pgadmin/postgres_data:/var/lib/postgresql/data
     ports:
@@ -32,6 +32,3 @@ services:
 
 networks:
   pg-network:
-
-volumes:
-  postgres_data:
