@@ -1,75 +1,128 @@
-
-/* === BASE === */
+/* ============ Nord Waybar =========== */
 * {
-  font-family: JetBrainsMono Nerd Font, monospace;
-  font-size: 12px;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
   color: #eceff4;
+  min-height: 0;
 }
 
+/* === BARRA === */
 window#waybar {
-  background: rgba(46, 52, 64, 0.8); /* Nord background with transparency */
-  border-radius: 12px;
-  padding: 4px 10px;
-  margin: 5px;
-  transition: background 0.3s ease;
+  background: transparent;
+}
+
+/* Cada grupo (esquerda/centro/direita) vira um bloco flutuante */
+.modules-left,
+.modules-center,
+.modules-right {
+  background: rgba(46, 52, 64, 0.78);
+  border-radius: 14px;
+  border: 1px solid rgba(136, 192, 208, 0.12);
+  margin: 4px 2px;
+  padding: 2px 6px;
 }
 
 /* === WORKSPACES === */
+#workspaces {
+  padding: 0 4px;
+}
+
 #workspaces button {
-  padding: 0 8px;
-  margin: 0 3px;
-  border-radius: 8px;
+  padding: 0 10px;
+  margin: 4px 3px;
+  border-radius: 10px;
   background: transparent;
-  color: #d8dee9;
-  transition: all 0.2s ease;
+  color: #4c566a;
+  font-weight: 600;
+  transition: background 180ms ease, color 180ms ease;
 }
 
 #workspaces button:hover {
-  background: rgba(136, 192, 208, 0.3);
+  background: rgba(136, 192, 208, 0.18);
+  color: #d8dee9;
 }
 
 #workspaces button.active {
-  background: #81a1c1;
+  background: #88c0d0;
   color: #2e3440;
-  font-weight: bold;
 }
 
-/* === CLOCK === */
+#workspaces button.urgent {
+  background: #bf616a;
+  color: #eceff4;
+}
+
+/* === TÍTULO DA JANELA === */
+#window {
+  padding: 0 12px;
+  color: #d8dee9;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* === RELÓGIO === */
 #clock {
+  padding: 0 14px;
   color: #88c0d0;
-  font-weight: 500;
-  margin: 0 12px;
+  font-weight: 700;
 }
 
-/* === AUDIO === */
-#pulseaudio {
-  margin-right: 20px;
-  color: #a3be8c;
+/* === REDE === */
+#network {
+  padding: 0 12px;
+  color: #8fbcbb;
+  border-right: 1px solid rgba(236, 239, 244, 0.08);
 }
+
+#network.disconnected {
+  color: #bf616a;
+}
+
+/* === ÁUDIO === */
+#pulseaudio {
+  padding: 0 12px;
+  color: #a3be8c;
+  transition: color 180ms ease;
+}
+
 #pulseaudio.muted {
   color: #bf616a;
 }
 
-/* === NETWORK === */
-#network {
-  color: #ebcb8b;
-  margin-right: 20px;
+/* === BATERIA (script custom p/ resolver trava em 96%) === */
+#custom-battery {
+  padding: 0 12px;
+  color: #b48ead;
 }
 
 /* === TRAY === */
 #tray {
-  margin-right: 10px;
+  padding: 0 10px 0 4px;
 }
 
-/* === SEPARADORES GERAIS === */
-#pulseaudio, #network, #tray {
-  margin: 0 10px;
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background: rgba(191, 97, 106, 0.35);
+  border-radius: 8px;
+}
+
+/* Separador sutil entre pulseaudio e bateria dentro do bloco direito */
+#pulseaudio {
+  border-right: 1px solid rgba(236, 239, 244, 0.08);
 }
 
 /* === TOOLTIP === */
 tooltip {
-  background: rgba(59, 66, 82, 0.9);
-  border-radius: 6px;
+  background: rgba(59, 66, 82, 0.95);
+  border: 1px solid rgba(136, 192, 208, 0.2);
+  border-radius: 8px;
   padding: 6px 10px;
+}
+
+tooltip label {
   color: #eceff4;
 }

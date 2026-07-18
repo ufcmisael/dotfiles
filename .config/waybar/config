@@ -1,33 +1,51 @@
-
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
-  "margin": "5 5 0 5",
+  "height": 34,
+  "margin": "6 8 0 8",
+  "spacing": 0,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "tray"],
+  "modules-right": ["pulseaudio", "custom/battery", "tray"],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "all-outputs": true,
+    "on-click": "activate"
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 42,
+    "separate-outputs": true
+  },
 
   "clock": {
-    "format": "{:%a %d %b  %H:%M}",
+    "format": "  {:%H:%M}",
+    "format-alt": "  {:%a %d %b}",
     "tooltip-format": "{:%A, %d de %B de %Y}"
   },
 
   "pulseaudio": {
-    "format": "  {volume}%",
-    "format-muted": "  Mudo",
-    "scroll-step": 5
+    "format": "{icon}  {volume}%",
+    "format-muted": "  Mudo",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
   },
 
-  "network": {
-    "interface": "enp8s0",
-    "format-ethernet": "󰤨  {ipaddr}",
-    "format-disconnected": "󰖪  Sem conexão"
+  "custom/battery": {
+    "exec": "cbatt=$(cat /sys/class/power_supply/BAT0/capacity); cstat=$(cat /sys/class/power_supply/BAT0/status); if [ \"$cstat\" = \"Charging\" ]; then echo \"  $cbatt%\"; elif [ \"$cstat\" = \"Not charging\" ] || [ \"$cstat\" = \"Full\" ]; then echo \"    $cbatt%\"; else echo \"   $cbatt%\"; fi",
+    "interval": 5,
+    "return-type": "",
+    "format": "{}"
   },
 
   "tray": {
     "icon-size": 16,
-    "spacing": 8
+    "spacing": 10
   }
 }

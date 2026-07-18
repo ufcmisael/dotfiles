@@ -1,0 +1,41 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "margin": "5 5 0 5",
+
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "tray", "custom/battery"],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "all-outputs": true,
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  "clock": {
+    "format": "{:%a %d %b  %H:%M}",
+    "tooltip-format": "{:%A, %d de %B de %Y}"
+  },
+
+  "pulseaudio": {
+    "format": "  {volume}%",
+    "format-muted": "  Mudo",
+    "scroll-step": 5
+  },
+
+  "custom/battery": {
+    "exec": "cbatt=$(cat /sys/class/power_supply/BAT0/capacity); cstat=$(cat /sys/class/power_supply/BAT0/status); if [ \"$cstat\" = \"Charging\" ]; then echo \"  $cbatt%\"; elif [ \"$cstat\" = \"Not charging\" ] || [ \"$cstat\" = \"Full\" ]; then echo \"    $cbatt%\"; else echo \"   $cbatt%\"; fi",
+    "interval": 5,
+    "return-type": "",
+    "format": "{}"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  }
+}
