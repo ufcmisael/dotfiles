@@ -1,8 +1,8 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 34,
-  "margin": "6 8 0 8",
+  "height": 32,
+  "margin": "4 6 0 6",
   "spacing": 0,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
@@ -22,8 +22,8 @@
   },
 
   "clock": {
-    "format": "  {:%H:%M}",
-    "format-alt": "  {:%a %d %b}",
+    "format": "{:%H:%M}",
+    "format-alt": "{:%a %d %b}",
     "tooltip-format": "{:%A, %d de %B de %Y}"
   },
 
@@ -31,14 +31,14 @@
     "format": "{icon}  {volume}%",
     "format-muted": "  Mudo",
     "format-icons": {
-      "default": ["", "", ""]
+      "default": ["", "", ""]
     },
     "scroll-step": 5,
     "on-click": "pavucontrol"
   },
 
   "custom/battery": {
-    "exec": "cbatt=$(cat /sys/class/power_supply/BAT0/capacity); cstat=$(cat /sys/class/power_supply/BAT0/status); if [ \"$cstat\" = \"Charging\" ]; then echo \"  $cbatt%\"; elif [ \"$cstat\" = \"Not charging\" ] || [ \"$cstat\" = \"Full\" ]; then echo \"    $cbatt%\"; else echo \"   $cbatt%\"; fi",
+    "exec": "cbatt=$(cat /sys/class/power_supply/BAT0/capacity); cstat=$(cat /sys/class/power_supply/BAT0/status); if [ \"$cstat\" = \"Charging\" ]; then echo \"  $cbatt%\"; elif [ \"$cstat\" = \"Not charging\" ] || [ \"$cstat\" = \"Full\" ]; then echo \"    $cbatt%\"; else echo \"   $cbatt%\"; fi",
     "interval": 5,
     "return-type": "",
     "format": "{}"

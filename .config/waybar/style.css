@@ -11,15 +11,15 @@ window#waybar {
   background: transparent;
 }
 
-/* Cada grupo (esquerda/centro/direita) vira um bloco flutuante */
+/* Cada "grupo" (esquerda/centro/direita) vira um bloco flutuante */
 .modules-left,
 .modules-center,
 .modules-right {
   background: rgba(46, 52, 64, 0.78);
   border-radius: 14px;
   border: 1px solid rgba(136, 192, 208, 0.12);
-  margin: 4px 2px;
-  padding: 2px 6px;
+  margin: 2px 2px;
+  padding: 3px 6px;
 }
 
 /* === WORKSPACES === */
@@ -29,7 +29,7 @@ window#waybar {
 
 #workspaces button {
   padding: 0 10px;
-  margin: 4px 3px;
+  margin: 2px 3px;
   border-radius: 10px;
   background: transparent;
   color: #4c566a;
@@ -81,7 +81,7 @@ window#waybar {
 /* === ÁUDIO === */
 #pulseaudio {
   padding: 0 12px;
-  color: #a3be8c;
+  color: #ffffff;
   transition: color 180ms ease;
 }
 
@@ -93,6 +93,7 @@ window#waybar {
 #custom-battery {
   padding: 0 12px;
   color: #b48ead;
+  border-right: 1px solid rgba(236, 239, 244, 0.08);
 }
 
 /* === TRAY === */
