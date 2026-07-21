@@ -1,0 +1,97 @@
+@import url("file:///home/mslms/.cache/wal/colors-waybar.css");
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  color: @foreground;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: alpha(@background, 0.8);
+  border-radius: 14px;
+  border: 1px solid alpha(@color4, 0.3);
+  margin: 2px 2px;
+  padding: 3px 6px;
+}
+
+#workspaces button {
+  padding: 0 10px;
+  margin: 2px 3px;
+  border-radius: 10px;
+  background: transparent;
+  color: @color8;
+  font-weight: 600;
+}
+
+#workspaces button:hover {
+  background: alpha(@color4, 0.2);
+  color: @foreground;
+}
+
+#workspaces button.active {
+  background: @color4;
+  color: @background;
+}
+
+#workspaces button.urgent {
+  background: @color1;
+  color: @foreground;
+}
+
+#window {
+  padding: 0 12px;
+  color: @foreground;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+#clock {
+  padding: 0 14px;
+  color: @color4;
+  font-weight: 700;
+}
+
+#network {
+  padding: 0 12px;
+  color: @color6;
+}
+
+#network.disconnected {
+  color: @color1;
+}
+
+#pulseaudio {
+  padding: 0 12px;
+  color: @foreground;
+}
+
+#pulseaudio.muted {
+  color: @color1;
+}
+
+#custom-battery {
+  padding: 0 12px;
+  color: @color5;
+}
+
+#tray {
+  padding: 0 10px 0 4px;
+}
+
+tooltip {
+  background: alpha(@background, 0.95);
+  border: 1px solid alpha(@color4, 0.3);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+tooltip label {
+  color: @foreground;
+}
