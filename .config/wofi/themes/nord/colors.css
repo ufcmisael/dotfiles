@@ -1,0 +1,10 @@
+@define-color window_bg rgba(46, 52, 64, 0.92);      /* Nord #2e3440 */
+@define-color window_border rgba(136, 192, 208, 0.25);
+@define-color input_bg rgba(59, 66, 82, 0.9);          /* Nord #3b4252 */
+@define-color input_border rgba(136, 192, 208, 0.15);
+@define-color fg #d8dee9;
+@define-color entry_bg transparent;
+@define-color entry_hover rgba(136, 192, 208, 0.1);
+@define-color accent #88c0d0;                          /* mesma cor do workspace ativo */
+@define-color accent_fg #2e3440;
+

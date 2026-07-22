@@ -1,0 +1,71 @@
+# =====================
+# Glass Theme - Alacritty
+# =====================
+
+[colors.primary]
+background = "#0a0a0d"
+foreground = "#f2f2f5"
+dim_foreground = "#9a9aa2"
+bright_foreground = "#ffffff"
+
+[colors.cursor]
+text = "#0a0a0d"
+cursor = "#ffffff"
+
+[colors.vi_mode_cursor]
+text = "#0a0a0d"
+cursor = "#c9d6ff"
+
+[colors.search.matches]
+foreground = "#0a0a0d"
+background = "#8ea9c7"
+
+[colors.search.focused_match]
+foreground = "#0a0a0d"
+background = "#ffffff"
+
+[colors.hints.start]
+foreground = "#0a0a0d"
+background = "#ffffff"
+
+[colors.hints.end]
+foreground = "#0a0a0d"
+background = "#8ea9c7"
+
+[colors.selection]
+text = "#0a0a0d"
+background = "#e4e6eb"
+
+[colors.line_indicator]
+foreground = "None"
+background = "#3a3a44"
+
+[colors.normal]
+black   = "#3a3a42"
+red     = "#c98a93"
+green   = "#a9c9a4"
+yellow  = "#d9c48a"
+blue    = "#9ab6d6"
+magenta = "#c3a6d6"
+cyan    = "#9fd4e0"
+white   = "#e8e8ec"
+
+[colors.bright]
+black   = "#68686f"
+red     = "#e3a7ae"
+green   = "#c3e0bd"
+yellow  = "#efe0b0"
+blue    = "#bcd4ec"
+magenta = "#dcc4ec"
+cyan    = "#c2ecf5"
+white   = "#ffffff"
+
+[colors.dim]
+black   = "#222227"
+red     = "#8f6266"
+green   = "#748f71"
+yellow  = "#968457"
+blue    = "#6a7f95"
+magenta = "#83718f"
+cyan    = "#6b929c"
+white   = "#a3a3a8"

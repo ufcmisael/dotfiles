@@ -1,0 +1,10 @@
+@define-color window_bg rgba(30, 30, 30, 0.95);
+@define-color window_border rgba(141, 141, 141, 0.6);
+@define-color input_bg rgba(50, 50, 50, 0.9);
+@define-color input_border transparent;
+@define-color fg #e0e0e0;
+@define-color entry_bg transparent;
+@define-color entry_hover rgba(255, 255, 255, 0.05);
+@define-color accent #2a82f5;
+@define-color accent_fg #ffffff;
+

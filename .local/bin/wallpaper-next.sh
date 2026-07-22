@@ -39,13 +39,15 @@ hyprctl hyprpaper wallpaper ",$NEXT_FILE"
 
 # 2.1 Atualiza a paleta de cores (pywal)
 # Só roda o pywal se algum tema "wallpaper" estiver ativo
-NEED_WAL=false
-[ "$(cat ~/.config/waybar/.current_theme 2>/dev/null)" = "wallpaper" ] && NEED_WAL=true
-[ "$(cat ~/.config/alacritty/.current_theme 2>/dev/null)" = "wallpaper" ] && NEED_WAL=true
+NEED_WAL_WAYBAR=false
+NEED_WAL_ALACRITTY=false
+[ "$(cat ~/.config/waybar/.current_theme 2>/dev/null)" = "wallpaper" ] && NEED_WAL_WAYBAR=true
+[ "$(cat ~/.config/alacritty/.current_theme 2>/dev/null)" = "wallpaper" ] && NEED_WAL_ALACRITTY=true
 
-if [ "$NEED_WAL" = true ]; then
-    wal -i "$NEXT_FILE" -n -s -q
+if [ "$NEED_WAL_WAYBAR" = true ] || [ "$NEED_WAL_ALACRITTY" = true ]; then
+    wal -i "$NEXT_FILE" -n -s -e -q   # -e evita reload extra de gtk/xrdb
 fi
+
 # 3. Limpa a memória (remove a imagem anterior do preload)
 # O comando 'unload unused' remove tudo que não está sendo exibido no momento
 # sleep 0.5
@@ -73,12 +75,13 @@ echo "$NEXT" > "$CACHE"
 # hyprctl hyprpaper wallpaper ",$NEXT_FILE"
 
 # Waybar: só TOCA o style.css pra disparar o reload_style_on_change (sem matar processo)
-if [ "$(cat ~/.config/waybar/.current_theme 2>/dev/null)" = "wallpaper" ]; then
+# só "publica" pra waybar se for o tema dela mesma
+if [ "$NEED_WAL_WAYBAR" = true ]; then
     touch ~/.config/waybar/style.css
 fi
 
 # Alacritty: só copia se o tema ativo for wallpaper
-if [ "$(cat ~/.config/alacritty/.current_theme 2>/dev/null)" = "wallpaper" ]; then
+if [ "$NEED_WAL_ALACRITTY" = true ]; then
     cp ~/.cache/wal/colors-alacritty.toml ~/.config/alacritty/themes/wallpaper.toml
     cp ~/.config/alacritty/themes/wallpaper.toml ~/.config/alacritty/themes/current.toml
 fi

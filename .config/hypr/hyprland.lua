@@ -31,8 +31,10 @@ local terminal = "alacritty"
 local fileManager = "nautilus --new-window"
 -- local menu        = "hyprlauncher"
 -- local menu = "wofi --show drun"
-local menu =
-	"bash -c 'theme=$(cat ~/.config/wofi/.current_theme 2>/dev/null || echo nord); wofi --show drun --conf ~/.config/wofi/themes/$theme/config --style ~/.config/wofi/themes/$theme/style.css'"
+local menu = "bash -c '"
+	.. "theme=$(cat ~/.config/wofi/.current_theme 2>/dev/null || echo nord); "
+	.. "cat ~/.config/wofi/themes/$theme/colors.css ~/.config/wofi/style-base.css > /tmp/wofi-style.css; "
+	.. "wofi --conf ~/.config/wofi/config --style /tmp/wofi-style.css'"
 
 -------------------
 ---- AUTOSTART ----
@@ -337,8 +339,21 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 -- custom (Mines)
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | wofi --dmenu | cliphist decode | wl-copy"))
+-- hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | wofi --dmenu | cliphist decode | wl-copy"))
+
+-- SUPER + V (clipboard)
+hl.bind(
+	mainMod .. " + V",
+	hl.dsp.exec_cmd(
+		"bash -c '"
+			.. "theme=$(cat ~/.config/wofi/.current_theme 2>/dev/null || echo nord); "
+			.. "cat ~/.config/wofi/themes/$theme/colors.css ~/.config/wofi/style-base.css > /tmp/wofi-style.css; "
+			.. "cliphist list | wofi --dmenu --conf ~/.config/wofi/config-clip --style /tmp/wofi-style.css | cliphist decode | wl-copy'"
+	)
+)
+
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("cliphist wipe"))
+
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("firefox"))
 hl.bind(mainMod .. " + I", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("bash -c '/home/mslms/.local/bin/wallpaper-next.sh'"))
@@ -435,12 +450,13 @@ hl.window_rule({
 -- })
 -- overlayLayerRule:set_enabled(false)
 --
--- hl.layer_rule({
---     name    = "blur-wofi",
---     match   = { namespace = "^wofi$" },
---     blur    = true,
---     ignore_alpha = 0.3,
--- })
+hl.layer_rule({
+	name = "blur-wofi",
+	match = { namespace = "^wofi$" },
+	blur = true,
+	ignore_alpha = 0.45,
+	xray = true,
+})
 --
 -- hl.layer_rule({
 --     name  = "blur-waybar",
