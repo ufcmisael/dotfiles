@@ -7,7 +7,7 @@
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "custom/battery", "tray"],
+  "modules-right": ["pulseaudio", "tray"],
 
   "hyprland/workspaces": {
     "format": "{name}",
@@ -31,17 +31,10 @@
     "format": "{icon}  {volume}%",
     "format-muted": "  Mudo",
     "format-icons": {
-      "default": ["", "", ""]
+      "default": ["", "", ""]
     },
     "scroll-step": 5,
     "on-click": "pavucontrol"
-  },
-
-  "custom/battery": {
-    "exec": "cbatt=$(cat /sys/class/power_supply/BAT0/capacity); cstat=$(cat /sys/class/power_supply/BAT0/status); if [ \"$cstat\" = \"Charging\" ]; then echo \"  $cbatt%\"; elif [ \"$cstat\" = \"Not charging\" ] || [ \"$cstat\" = \"Full\" ]; then echo \"    $cbatt%\"; else echo \"   $cbatt%\"; fi",
-    "interval": 5,
-    "return-type": "",
-    "format": "{}"
   },
 
   "tray": {
